@@ -57,12 +57,12 @@ document.addEventListener('DOMContentLoaded', function() {
     interactiveCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-8px) scale(1.02)';
-            this.style.boxShadow = 'var(--shadow-xl)';
+            this.style.boxShadow = 'var(--shadow-orange-lg)';
         });
         
         card.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0) scale(1)';
-            this.style.boxShadow = 'var(--shadow-md)';
+            this.style.boxShadow = 'var(--shadow-lg)';
         });
     });
 
@@ -71,12 +71,20 @@ document.addEventListener('DOMContentLoaded', function() {
     skillTags.forEach(tag => {
         tag.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-3px) scale(1.05)';
-            this.style.boxShadow = '0 4px 12px rgba(0, 102, 255, 0.2)';
+            if (tag.classList.contains('featured')) {
+                this.style.boxShadow = 'var(--shadow-orange-lg)';
+            } else {
+                this.style.boxShadow = '0 4px 12px rgba(234, 88, 12, 0.2)';
+            }
         });
         
         tag.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0) scale(1)';
-            this.style.boxShadow = 'none';
+            if (tag.classList.contains('featured')) {
+                this.style.boxShadow = 'var(--shadow-orange)';
+            } else {
+                this.style.boxShadow = 'none';
+            }
         });
     });
 
